@@ -25,6 +25,12 @@ gem 'yaml'
 # An easy to use but powerful templating system for Ruby
 gem 'erb'
 
+# Lightweight and fast HTTP Router
+gem 'hanami-router', '~> 2.0.0.beta2'
+
+# Use the Puma web server [https://github.com/puma/puma]
+gem 'puma'
+
 group :development do
   gem 'rubocop', require: false
 end
