@@ -22,4 +22,8 @@ class Post < ActiveRecord::Base
   def self.polymorphic_class_for(name)
     CLASS_MAPPING[name]
   end
+
+  def avg_ratings
+    ratings.average(:value).to_f.round(2)
+  end
 end

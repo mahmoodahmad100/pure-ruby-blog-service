@@ -20,11 +20,26 @@ class PostsController < BaseController
         end
     end
 
+    def create_rating
+        post = Post::find(router_params[:id])
+        rating = post.ratings.create(rating_params)
+
+        if rating.save
+            send_response({ average: post.avg_ratings })
+        else
+            send_error_response(rating.errors.full_messages)
+        end
+    end
+
     def user_params
         params['user']
     end
 
     def post_params
         params['post']
+    end
+
+    def rating_params
+        params['rating']
     end
 end

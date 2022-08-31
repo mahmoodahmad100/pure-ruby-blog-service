@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BaseController
-    attr_reader :method, :params
+    attr_reader :method, :params, :router_params
 
     def initialize(method)
         @method = method
@@ -9,6 +9,7 @@ class BaseController
   
     def call(env)
         @params = Rack::Request.new(env).params
+        @router_params = env['router.params']
         public_send(@method)
     end
 

@@ -26,4 +26,3 @@ require 'app/models/feedback'
 # Loading Controllers
 require 'app/controllers/base_controller'
 require 'app/controllers/posts_controller'
-require 'app/controllers/ratings_controller'
