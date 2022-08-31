@@ -2,10 +2,6 @@
 
 class PostsController < BaseController
     def index
-        res = {id: 1, attr1: 'test1', attr2: 'test2'}
-        # send_response(res)
-        send_response()
-        # send_error_response()
     end
 
     def create
@@ -25,10 +21,10 @@ class PostsController < BaseController
     end
 
     def user_params
-        request.params['user']
+        params['user']
     end
 
     def post_params
-        request.params['post']
+        params['post']
     end
 end
