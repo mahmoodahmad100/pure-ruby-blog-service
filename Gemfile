@@ -19,6 +19,9 @@ gem 'activerecord'
 # Use Rails Database Migrations in non Rails projects
 gem 'standalone_migrations'
 
+# A library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
+
 # This module provides a Ruby interface for data serialization in YAML format
 gem 'yaml'
 

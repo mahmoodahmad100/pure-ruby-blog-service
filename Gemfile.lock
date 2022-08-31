@@ -34,6 +34,8 @@ GEM
     erb (2.2.3)
       cgi
     erubi (1.11.0)
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
     hanami-router (2.0.0.beta2)
       mustermann (~> 1.0)
       mustermann-contrib (~> 1.0)
@@ -126,6 +128,7 @@ DEPENDENCIES
   activerecord
   dotenv
   erb
+  faker
   hanami-router (~> 2.0.0.beta2)
   mysql2
   puma
