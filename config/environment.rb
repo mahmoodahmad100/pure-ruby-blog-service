@@ -16,3 +16,13 @@ def db_configuration
 end
 
 ActiveRecord::Base.establish_connection(db_configuration[ENV['APP_ENV']])
+
+# Loading Models
+require 'app/models/user'
+require 'app/models/post'
+require 'app/models/rating'
+require 'app/models/feedback'
+
+# Loading Controllers
+require 'app/controllers/base_controller'
+require 'app/controllers/posts_controller'
