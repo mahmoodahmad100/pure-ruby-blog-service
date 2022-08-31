@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
     'user' => self
   }
 
+  validates :username, presence: true, uniqueness: true
+
   has_many :posts, dependent: :destroy
   has_many :my_feedbacks, foreign_key: 'owner_id', class_name: 'Feedback', dependent: :destroy
   has_many :feedbacks, as: :feedbackable, dependent: :destroy

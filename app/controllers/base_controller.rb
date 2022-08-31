@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class BaseController
-    attr_reader :method
+    attr_reader :method, :request
 
     def initialize(method)
         @method = method
     end
   
     def call(env)
+        @request = Rack::Request.new(env)
         public_send(@method)
     end
 
