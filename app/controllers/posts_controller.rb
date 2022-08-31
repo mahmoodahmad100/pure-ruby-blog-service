@@ -2,6 +2,7 @@
 
 class PostsController < BaseController
     def index
+        send_response(Post.top_rated_posts(params['pagination'] || nil))
     end
 
     def create

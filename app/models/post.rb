@@ -26,4 +26,20 @@ class Post < ActiveRecord::Base
   def avg_ratings
     ratings.average(:value).to_f.round(2)
   end
+
+  def self.top_rated_posts(pagination = nil)
+    pagination ||= 50
+    posts = self.joins(:ratings)
+                .select('title, content')
+                .group('title')
+                .order('avg(ratings.value) DESC')
+                .limit(pagination)
+        
+    data = []
+    posts.each do |k,v|
+      data << { 'title' => k[:title], 'content' => k[:content] }
+    end
+
+    data
+  end
 end
