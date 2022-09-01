@@ -34,10 +34,24 @@ class Post < ActiveRecord::Base
                 .group('title')
                 .order('avg(ratings.value) DESC')
                 .limit(pagination)
-        
+
     data = []
-    posts.each do |k,v|
-      data << { 'title' => k[:title], 'content' => k[:content] }
+    posts.each do |v|
+      data << { 'title' => v[:title], 'content' => v[:content] }
+    end
+
+    data
+  end
+
+  # TODO improve the below as the response time is 500ms (AVG) (for ex: use Redis to cache the result)
+  def self.ip_addresses_info()
+    ips = self.joins(:user)
+              .select('users.id, users.username, posts.ip_address as ip')
+              .group('users.id, ip')
+
+    data = []
+    ips.each do |v|
+      data << { 'ip' => v[:ip], 'author' => { id: v[:id], username: v[:username] } }
     end
 
     data
