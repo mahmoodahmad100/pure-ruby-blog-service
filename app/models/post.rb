@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   CLASS_MAPPING = {
     'post' => self
-  }
+  }.freeze
 
   validates :title, presence: true
   validates :content, presence: true
@@ -29,11 +29,11 @@ class Post < ActiveRecord::Base
 
   def self.top_rated_posts(pagination = nil)
     pagination ||= 50
-    posts = self.joins(:ratings)
-                .select('title, content')
-                .group('title')
-                .order('avg(ratings.value) DESC')
-                .limit(pagination)
+    posts = joins(:ratings)
+            .select('title, content')
+            .group('title')
+            .order('avg(ratings.value) DESC')
+            .limit(pagination)
 
     data = []
     posts.each do |v|
@@ -43,11 +43,11 @@ class Post < ActiveRecord::Base
     data
   end
 
-  # TODO improve the below as the response time is 500ms (AVG) (for ex: use Redis to cache the result)
-  def self.ip_addresses_info()
-    ips = self.joins(:user)
-              .select('users.id, users.username, posts.ip_address as ip')
-              .group('users.id, ip')
+  # TODO: improve the below as the response time is 500ms (AVG) (for ex: use Redis to cache the result)
+  def self.ip_addresses_info
+    ips = joins(:user)
+          .select('users.id, users.username, posts.ip_address as ip')
+          .group('users.id, ip')
 
     data = []
     ips.each do |v|

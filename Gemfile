@@ -13,7 +13,7 @@ gem 'rake'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
-# Active Record connects classes to relational database tables to establish an almost zero-configuration persistence layer for applications
+# Active Record connects classes to relational database tables
 gem 'activerecord'
 
 # Use Rails Database Migrations in non Rails projects

@@ -1,0 +1,22 @@
+AllCops:
+  NewCops: enable
+Style/Documentation:
+  Enabled: false
+Style/GlobalVars:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'db/schema.rb'
+Metrics/MethodLength:
+  Exclude:
+    - 'app/models/post.rb'
+Metrics/ParameterLists:
+  Exclude:
+    - 'app/controllers/base_controller.rb'
+Style/OptionalBooleanParameter:
+  Exclude:
+    - 'app/controllers/base_controller.rb'
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/controllers/feedbacks_controller.rb'

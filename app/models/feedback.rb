@@ -8,7 +8,7 @@ class Feedback < ActiveRecord::Base
   belongs_to :feedbackable, polymorphic: true
 
   def check_existence
-    Feedback.where(owner_id: owner_id, feedbackable_type: feedbackable_type, feedbackable_id: feedbackable_id)
+    Feedback.where(owner_id:, feedbackable_type:, feedbackable_id:)
             .where.not(id: nil).exists?
   end
 end

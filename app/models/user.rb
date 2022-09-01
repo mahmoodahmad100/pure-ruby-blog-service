@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   CLASS_MAPPING = {
     'user' => self
-  }
+  }.freeze
 
   validates :username, presence: true, uniqueness: true
 
