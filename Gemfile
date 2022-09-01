@@ -39,5 +39,6 @@ group :development do
 end
 
 group :test do
+  gem 'httparty'
   gem 'rspec'
 end
