@@ -8,6 +8,7 @@ app = Hanami::Router.new do
     post '/posts',                to: PostsController.new('create')
     post '/posts/:id/ratings',    to: PostsController.new('create_rating')
     get '/ip_addresses',          to: IpsController.new('index')
+    post '/feedbacks',            to: FeedbacksController.new('create')
 end
 
 use Rack::Reloader, 0
